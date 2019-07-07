@@ -20,7 +20,6 @@
   function getUrl(method, params) {
     if (!method) throw new Error('Необходимо указать метод');
     params = params || {};
-    params['access_token'] = '3b88fb14405bb97b368839adccb58551542fefe558f107ade3353037e7e0ee509b87a76064e4756388509';
     return 'https://api.vk.com/method/' + method + '?' + $.param(params);// объект params преобр. в строку
   }
 
@@ -37,7 +36,7 @@
     // 'https://oauth.vk.com/authorize?client_id=7038522&redirect_uri=https://oauth.vk.com/blank.html/callback&scope=friends&display=popup&response_type=token' 
     location.href = 'https://oauth.vk.com/authorize?client_id=7038522&redirect_uri=https://nataliagracheva.github.io/test/&scope=friends&display=page&response_type=token' 
     
-    let token = location.href.split('&')[1].split('=')[1];
+    let token = location.href.split('&')[0].split('=')[1];
 
     sendRequest('friends.search', {count: 5, fields: 'photo_100', 'access_token': token}, function(data) {
         console.log(data);
