@@ -9,6 +9,7 @@
 <body>
   <!-- <button>Показать друзей</button> -->
   <h1></h1>
+  <h2></h2>
   <ul></ul>
 
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
@@ -58,11 +59,11 @@
       // console.log(userData.response[0].first_name);
       console.log(data.response[0].first_name);
       let userName = `${data.response[0].first_name} ${data.response[0].last_name}`;
-      $('h1').text(userName);
+      
     }
     });
     
-
+    $('h1').text('Друзья:');
 
     // sendRequest('friends.search', {count: 5, fields: 'photo_100', 'access_token': token}, function(data) {
     //     console.log(data);
@@ -78,7 +79,7 @@
       // console.log(friendsData.response.items[0].first_name);
       for (let item of data.response.items) {
         let friendName = `${item.first_name} ${item.last_name}`;
-        $('ul').append(friendName);
+        $('ul').append(`<li>${friendName}</li>`);
       }
 
     }
