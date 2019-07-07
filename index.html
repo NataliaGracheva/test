@@ -45,14 +45,14 @@
     let token = location.href.split('&')[0].split('=')[1];
     console.log(token);
 
-    let url1= `https://api.vk.com/method/users.get?user_id=${userId}&v=5.52`;
+    let url1= `https://api.vk.com/method/users.get?user_id=${userId}&access_token=${token}&v=5.52`;
     $.ajax({
     url: url1,
     method: 'GET',
     dataType: 'JSONP',
     success: function(data) {
       console.log(data);
-      // console.log(data.first_name, data.last_name);
+      console.log(data.first_name, data.last_name);
 
     }
     });
@@ -69,8 +69,8 @@
     dataType: 'JSONP',
     success: function(data) {
       console.log(data);
-      // console.log(data.items[0]);
-      // console.log(data.items[1]);
+      console.log(data.items[0]);
+      console.log(data.items[1]);
     }
   });
     
