@@ -7,7 +7,7 @@
 </head>
 
 <body>
-  <button>Показать друзей</button>
+  <!-- <button>Показать друзей</button> -->
   <ul></ul>
 
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
@@ -38,11 +38,20 @@
     // location.href = 'https://oauth.vk.com/authorize?client_id=7038522&redirect_uri=https://nataliagracheva.github.io/test/&scope=friends&display=page&response_type=token' 
     
     let token = location.href.split('&')[0].split('=')[1];
+    console.log(token);
 
-    sendRequest('friends.search', {count: 5, fields: 'photo_100', 'access_token': token}, function(data) {
-        console.log(data);
-      })
-    
+    // sendRequest('friends.search', {count: 5, fields: 'photo_100', 'access_token': token}, function(data) {
+    //     console.log(data);
+    //   })
+    let url= `https://api.vk.com/method/friends.search?count=5&fields=photo_100&access_token=${token}&v=5.52`;
+    $.ajax({
+    url: url,
+    method: 'GET',
+    dataType: 'JSONP',
+    success: function(data) {
+      console.log(data);
+    }
+  });
     
   }
   </script>
