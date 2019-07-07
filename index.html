@@ -41,9 +41,10 @@
     console.log('Загружаю список друзей');
 
     let userId = location.href.split('&')[2].split('=')[1];
-
+    console.log(userId);
     let token = location.href.split('&')[0].split('=')[1];
     console.log(token);
+    
     let url1= `https://api.vk.com/method/users.get?user_id=${userId}&v=5.52`;
     $.ajax({
     url: url1,
@@ -55,7 +56,7 @@
 
     }
     });
-    $('h1').text(userId);
+    // $('h1').text(userId);
 
 
     // sendRequest('friends.search', {count: 5, fields: 'photo_100', 'access_token': token}, function(data) {
