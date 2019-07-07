@@ -45,16 +45,18 @@
     let token = location.href.split('&')[0].split('=')[1];
     console.log(token);
 
+    // https://api.vk.com/method/METHOD_NAME?PARAMETERS&access_token=ACCESS_TOKEN&v=V 
+
     let url1= `https://api.vk.com/method/users.get?user_id=${userId}&access_token=${token}&v=5.52`;
     $.ajax({
     url: url1,
     method: 'GET',
-    dataType: 'JSONP',
+    dataType: 'JSON',
     success: function(data) {
       console.log(data);
-      let userData = JSON.parse(data);
-      console.log(userData.response[0].first_name);
-
+      // let userData = JSON.parse(data);
+      // console.log(userData.response[0].first_name);
+      console.log(data.response[0].first_name);
     }
     });
     $('h1').text(userId);
@@ -70,8 +72,8 @@
     dataType: 'JSONP',
     success: function(data) {
       console.log(data);
-      let friendsData = JSON.parse(data);
-      console.log(friendsData.response.items[0].first_name);
+      // let friendsData = JSON.parse(data);
+      // console.log(friendsData.response.items[0].first_name);
     }
   });
     
